@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-image: url(background.jpg);
+  background-size: cover;
+  color: #ddd;
+  font-family: monospace;
+}
+
+.container {
+  background-color: #222c;
+  left: 50%;
+  margin: auto;
+  padding: 10px 20px 20px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+}
+
+.radar {
+  text-align: center;
+}
+
+.buttonContainer button {
+  background-color: #333;
+  border: 1px solid #0f0;
+  color: #ddd;
+  padding: 10px;
+  width: 100%;
+}
+
+.buttonContainer button.payload {
+  border: 1px solid #f00;
+}
+
+.buttonContainer + .buttonContainer {
+  margin-top: 10px;
+}

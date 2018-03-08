@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Control Panel</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <section class="container">
+      <section class="radar">
+        <img src="radar.jpg" alt="Radar">
+      </section>
+      <h1>Control Panel</h1>
+      <section class="buttonContainer">
+        <button onclick="go()">INITIATE BOMBING RUN</button>
+      </section>
+      <section class="buttonContainer">
+        <button onclick="stop()">ABORT MISSION</button>
+      </section>
+      <section class="buttonContainer">
+        <button class="payload" onclick="fire()">DELIVER PAYLOAD</button>
+      </section>
+      <section>
+        <h2>Current Speed</h2>
+        <section class="speedDisplay">
+          0
+        </section>
+      </section>
+    </section>
+  </body>
+</html>
