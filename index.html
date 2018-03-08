@@ -11,20 +11,30 @@
         <img src="radar.jpg" alt="Radar">
       </section>
       <h1>Control Panel</h1>
-      <section class="buttonContainer">
+      <section class="contentContainer">
         <button onclick="go()">INITIATE BOMBING RUN</button>
       </section>
-      <section class="buttonContainer">
+      <section class="contentContainer">
         <button onclick="stop()">ABORT MISSION</button>
       </section>
-      <section class="buttonContainer">
+      <section class="contentContainer">
         <button class="payload" onclick="fire()">DELIVER PAYLOAD</button>
       </section>
-      <section>
-        <h2>Current Speed</h2>
-        <section class="speedDisplay">
-          0
-        </section>
+      <section class="contentContainer extraPadding">
+        <h2>Throttle</h2>
+        <input class="throttle" type="range" min="0" max="255" value="255">
+      </section>
+      <section class="contentContainer">
+        <input class="autoCheckbox" type="checkbox" value="Auto Drop Payload" checked>
+        Auto Drop Payload
+      </section>
+      <section class="contentContainer">
+        <h2>Payload Drop Time</h2>
+        <input class="bombTime" type="number" min="0" value="1">
+      </section>
+      <section class="contentContainer">
+        <h2>Auto Stop Time</h2>
+        <input class="stopTime" type="number" min="0" value="1.2">
       </section>
     </section>
   </body>

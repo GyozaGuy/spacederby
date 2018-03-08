@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html, body {
@@ -14,33 +16,47 @@ body {
   font-family: monospace;
 }
 
+input:not([type="checkbox"]), button {
+  padding: 30px;
+  width: 100%;
+}
+
+input {
+  font-size: 2em;
+}
+
+input[type="range"] {
+  padding: 0;
+}
+
 .container {
   background-color: #222c;
   left: 50%;
   margin: auto;
   padding: 10px 20px 20px;
   position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
+  transform: translate(-50%, 0);
+  width: 100%;
 }
 
 .radar {
   text-align: center;
 }
 
-.buttonContainer button {
+.contentContainer button {
   background-color: #333;
   border: 1px solid #0f0;
   color: #ddd;
-  padding: 10px;
-  width: 100%;
 }
 
-.buttonContainer button.payload {
+.contentContainer button.payload {
   border: 1px solid #f00;
 }
 
-.buttonContainer + .buttonContainer {
+.contentContainer + .contentContainer {
   margin-top: 10px;
+}
+
+.extraPadding {
+  padding: 40px;
 }

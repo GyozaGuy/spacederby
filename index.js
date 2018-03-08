@@ -4,11 +4,18 @@ const baseURL = 'https://api.particle.io/v1/devices';
 let running = false;
 
 function go() {
-  performFetch('go', 50)
+  const speed = document.querySelector('.throttle').value;
+  performFetch('go', speed)
     .then(res => {
-      console.log(res);
       running = true;
-      getSpeed();
+      if (document.querySelector('.autoCheckbox').checked) {
+        setTimeout(() => {
+          fire();
+        }, Number(document.querySelector('.bombTime').value) * 1000);
+      }
+      setTimeout(() => {
+        stop();
+      }, Number(document.querySelector('.stopTime').value) * 1000);
     })
     .catch(err => {
       console.error(err);
@@ -18,7 +25,6 @@ function go() {
 function stop() {
   performFetch('stop')
     .then(res => {
-      console.log(res);
       running = false;
     })
     .catch(err => {
@@ -26,39 +32,22 @@ function stop() {
     });
 }
 
-function fire() {
-  performFetch('fire')
+function fire(bombTime = 0) {
+  performFetch('fire', bombTime)
     .then(res => {
-      console.log(res);
+      console.log('BOMB DROPPED!');
     })
     .catch(err => {
       console.error(err);
     });
-}
-
-function getSpeed() {
-  performFetch('speed')
-    .then(res => {
-      console.log(res);
-      document.querySelector('.speedDisplay').textContent = res;
-    })
-    .catch(err => {
-      console.error(err);
-    });
-  if (running) {
-    setTimeout(getSpeed, 1000);
-  }
 }
 
 function performFetch(command, speed = 0) {
-  const headers = new Headers({
-    'content-type': 'application/x-www-form-urlencoded'
+  return fetch(`${baseURL}/${deviceID}/${command}`, {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/x-www-form-urlencoded'
+    },
+    body: `access_token=${accessToken}&args=${speed}`
   });
-
-  const data = {
-    'access_token': accessToken,
-    args: speed
-  };
-
-  return fetch(`${baseURL}/${deviceID}/${command}`, {headers, method: 'POST', data});
 }
