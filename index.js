@@ -1,5 +1,5 @@
-const deviceID = '500041001951363036373538';
-const accessToken = '0d7d759cd135355d20277e9b1ee4a81bca0b3502';
+const deviceID = '<DEVICEID>';
+const accessToken = '<ACCESSTOKEN>';
 const baseURL = 'https://api.particle.io/v1/devices';
 let running = false;
 
